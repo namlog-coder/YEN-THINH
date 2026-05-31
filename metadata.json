@@ -1,0 +1,8 @@
+{
+  "name": "Cổng Tuyển Sinh Yên Thịnh",
+  "description": "Hệ thống đăng ký tuyển sinh trực tuyến và quản lý hồ sơ thí sinh Trường Tiểu Học Yên Thịnh, Phường Văn Phú.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
