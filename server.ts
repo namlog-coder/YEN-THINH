@@ -68,33 +68,58 @@ const defaultData: AppData = {
   ]
 };
 
+// In-memory runtime database cache to guarantee consistency even if hosting disk is read-only or ephemeral
+let dbCache: AppData | null = null;
+
 // Ensure data file exists or initialize it
 function readDatabase(): AppData {
-  try {
-    if (!fs.existsSync(DATA_FILE)) {
-      fs.writeFileSync(DATA_FILE, JSON.stringify(defaultData, null, 2), "utf-8");
-      return defaultData;
+  if (dbCache) {
+    // Incorporate runtime env overrides dynamically if configured
+    if (process.env.ADMIN_PASSCODE) {
+      dbCache.adminPasscode = process.env.ADMIN_PASSCODE;
     }
-    const raw = fs.readFileSync(DATA_FILE, "utf-8");
-    const data: AppData = JSON.parse(raw);
-    // Auto-migrate to the new Google Form/Spreadsheet URL requested by user or update pass codes
-    if (!data.googleFormUrl || data.googleFormUrl !== defaultData.googleFormUrl) {
-      data.googleFormUrl = defaultData.googleFormUrl;
-      data.adminPasscode = defaultData.adminPasscode;
-      fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
+    if (process.env.GOOGLE_FORM_URL) {
+      dbCache.googleFormUrl = process.env.GOOGLE_FORM_URL;
     }
-    return data;
-  } catch (err) {
-    console.error("Error reading database, resetting to default:", err);
-    return defaultData;
+    return dbCache;
   }
+
+  try {
+    if (fs.existsSync(DATA_FILE)) {
+      const raw = fs.readFileSync(DATA_FILE, "utf-8");
+      dbCache = JSON.parse(raw);
+    }
+  } catch (err) {
+    console.error("Error reading database file from disk:", err);
+  }
+
+  // Fallback to clone of default data if reading failed or file didn't exist
+  if (!dbCache) {
+    dbCache = JSON.parse(JSON.stringify(defaultData));
+    try {
+      fs.writeFileSync(DATA_FILE, JSON.stringify(dbCache, null, 2), "utf-8");
+    } catch (err: any) {
+      console.warn("Could not write initial database file to disk (running in read-only environment):", err.message);
+    }
+  }
+
+  // Override with environment variables if specified
+  if (process.env.ADMIN_PASSCODE) {
+    dbCache.adminPasscode = process.env.ADMIN_PASSCODE;
+  }
+  if (process.env.GOOGLE_FORM_URL) {
+    dbCache.googleFormUrl = process.env.GOOGLE_FORM_URL;
+  }
+
+  return dbCache;
 }
 
 function writeDatabase(data: AppData) {
+  dbCache = data;
   try {
     fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
-  } catch (err) {
-    console.error("Error writing database:", err);
+  } catch (err: any) {
+    console.error("Error writing database to disk (running in read-only/serverless environment):", err.message);
   }
 }
 
