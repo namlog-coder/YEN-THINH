@@ -421,13 +421,6 @@ export default function App() {
         {activeTab === "parent" ? (
           /* Public Search & Verification System */
           <div className="space-y-6">
-            <div className="bg-gradient-to-r from-amber-50 to-amber-100/30 border border-amber-200 rounded-xl p-4 flex gap-3 text-slate-700">
-              <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-              <div className="text-xs leading-relaxed">
-                <span className="font-semibold text-amber-900">Thông báo tuyển sinh:</span> Theo kế hoạch phát triển phổ cập, phụ huynh vui lòng kiểm tra chính xác mã số định danh cá nhân của học sinh lớp 1 trước khi tiến hành khai báo vào <span className="font-bold">Google Form</span> hoặc đăng ký trực tiếp trên cổng.
-              </div>
-            </div>
-
             {/* Verification & Native form */}
             <CandidateForm />
           </div>

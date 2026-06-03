@@ -27,7 +27,7 @@ const DATA_FILE = path.join(process.cwd(), "data.json");
 
 const defaultData: AppData = {
   adminPasscode: "859796",
-  googleFormUrl: "https://docs.google.com/forms/d/1cMs13LkQ4f_T4sGtV6RGH5G8t4wlyRHNp1NEljGaRM4/edit",
+  googleFormUrl: "https://forms.gle/HnYgtNjuNurPehwAA",
   allowedIds: [
     "001206000123",
     "001206000456",
@@ -78,7 +78,7 @@ function readDatabase(): AppData {
     const raw = fs.readFileSync(DATA_FILE, "utf-8");
     const data: AppData = JSON.parse(raw);
     // Auto-migrate to the new Google Form/Spreadsheet URL requested by user or update pass codes
-    if (!data.googleFormUrl || data.googleFormUrl.includes("1-JGN-wn5tE-vS_2gnO0X3688gsj4tsSg") || data.googleFormUrl.includes("1HTS978aOdYKDywi2aXQ7tZVNorIQUZ4VbmnfLJsCNbo")) {
+    if (!data.googleFormUrl || data.googleFormUrl !== defaultData.googleFormUrl) {
       data.googleFormUrl = defaultData.googleFormUrl;
       data.adminPasscode = defaultData.adminPasscode;
       fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
