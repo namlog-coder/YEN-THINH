@@ -1,18 +1,28 @@
-export interface Applicant {
-  id: string;
-  candidateId: string;
-  fullName: string;
-  birthDate: string;
-  gender: string;
-  parentName: string;
-  parentPhone: string;
-  address: string;
-  status: string; // 'Chờ duyệt' | 'Đã tiếp nhận' | 'Đã trúng tuyển' | 'Cần bổ sung'
-  createdAt: string;
+export interface AdmissionStep {
+  id: number;
+  title: string;
+  description: string;
+  iconName: string;
 }
 
-export interface AdminData {
-  googleFormUrl: string;
-  allowedIds: string[];
-  candidates: Applicant[];
+export interface TimelineItem {
+  id: number;
+  phase: string;
+  dateRange: string;
+  description: string;
+  status: 'past' | 'current' | 'future';
+}
+
+export interface FAQItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+export interface SchoolContact {
+  hotline: string;
+  alternativePhone: string;
+  email: string;
+  address: string;
+  officeHours: string;
 }

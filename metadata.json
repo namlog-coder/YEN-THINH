@@ -1,8 +1,6 @@
 {
-  "name": "Cổng Tuyển Sinh Yên Thịnh",
-  "description": "Hệ thống đăng ký tuyển sinh trực tuyến và quản lý hồ sơ thí sinh Trường Tiểu Học Yên Thịnh, Phường Văn Phú.",
+  "name": "Tuyển sinh Lớp 1 Trường Tiểu học Yên Thịnh",
+  "description": "Cổng thông tin tuyển sinh trực tuyến Lớp 1 của Trường Tiểu học Yên Thịnh, Phường Văn Phú, tỉnh Lào Cai",
   "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

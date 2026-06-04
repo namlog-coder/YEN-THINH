@@ -1,51 +1,52 @@
-import { GraduationCap, MapPin, Sparkles } from "lucide-react";
+import React from 'react';
+import { School, PhoneCall } from 'lucide-react';
 
 export default function Header() {
   return (
-    <header className="relative w-full overflow-hidden bg-gradient-to-b from-blue-900 to-indigo-950 text-white shadow-xl rounded-2xl md:rounded-3xl border border-blue-800/50">
-      {/* Decorative Traditional Red Ribbon on left or background details */}
-      <div className="absolute top-0 left-0 w-2 h-full bg-red-600" />
-      
-      {/* Background radial soft light glow */}
-      <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[350px] md:w-[600px] h-[350px] md:h-[600px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-
-      {/* Main Grid container */}
-      <div className="relative px-6 py-8 md:py-12 md:px-12 flex flex-col items-center text-center">
-        
-        {/* National / Government Subtitle */}
-        <p className="text-xs md:text-sm font-semibold tracking-widest text-blue-200 uppercase mb-2">
-          ỦY BAN NHÂN DÂN PHƯỜNG VĂN PHÚ
-        </p>
-
-        {/* Traditional separator dot or line */}
-        <div className="w-12 h-1 bg-red-500 rounded-full my-1.5" />
-
-        {/* Official School Title */}
-        <h1 className="text-xl md:text-3.5xl font-serif font-bold tracking-wide text-amber-300 drop-shadow-md">
-          TRƯỜNG TIỂU HỌC YÊN THỊNH
-        </h1>
-
-        {/* Secondary Title */}
-        <p className="mt-4 max-w-xl text-xs md:text-sm text-blue-100 font-sans tracking-normal leading-relaxed">
-          Cổng Thông Tin Đăng Ký Tuyển Sinh Trực Tuyến Hợp Pháp & Quản Lý Hồ Sơ
-          <br className="hidden sm:inline" /> Học sinh Trường Tiểu học Yên Thịnh - Năm học 2026 - 2027
-        </p>
-
-        {/* Active badges */}
-        <div className="mt-5 flex flex-wrap gap-2.5 justify-center items-center text-xs">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full border border-emerald-500/35 font-medium shadow-sm">
-            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-            Đang Mở Tuyển Sinh Lớp 1
-          </span>
-          <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/20 text-blue-200 rounded-full border border-blue-500/35">
-            <MapPin className="w-3.5 h-3.5 text-amber-400" />
-            Phường Văn Phú, tỉnh Lào Cai
-          </span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 py-3 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Branding */}
+        <div id="header-brand-container" className="flex items-center gap-3">
+          <div 
+            id="header-logo-badge" 
+            className="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shadow-sm"
+          >
+            {/* Elegant school graphic */}
+            <div className="relative">
+              <School className="w-6 h-6 stroke-[1.8]" />
+              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border border-white animate-ping" />
+              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border border-white" />
+            </div>
+          </div>
+          <div id="header-text-block" className="flex flex-col">
+            <span 
+              id="header-subtitle" 
+              className="text-[10px] md:text-[11px] font-semibold text-slate-400 tracking-wider uppercase font-display"
+            >
+              HỆ THỐNG TRỰC TUYẾN
+            </span>
+            <span 
+              id="header-title" 
+              className="text-base md:text-lg font-bold text-slate-800 tracking-tight"
+            >
+              Tuyển sinh Lớp 1 Tiểu học
+            </span>
+          </div>
         </div>
 
-        {/* Academic cap Floating icon at the side background */}
-        <div className="absolute right-6 top-6 opacity-5 pointer-events-none hidden md:block">
-          <GraduationCap className="w-24 h-24" />
+        {/* Support Hotline / Quick CTA (Clean alternative since we removed the buttons) */}
+        <div id="header-support-block" className="flex items-center gap-3">
+          <a
+            href="tel:02143820202"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/60 hover:bg-slate-100/80 transition-colors duration-200 text-xs text-slate-600 font-medium"
+          >
+            <PhoneCall className="w-3.5 h-3.5 text-blue-500" />
+            <span>Hỗ trợ: 0214.382.0202</span>
+          </a>
+          <span className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-green-50 border border-green-200/50 text-xs text-green-600 font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+            Trực tuyến
+          </span>
         </div>
       </div>
     </header>
