@@ -37,11 +37,11 @@ export default function Header() {
         {/* Support Hotline / Quick CTA (Clean alternative since we removed the buttons) */}
         <div id="header-support-block" className="flex items-center gap-3">
           <a
-            href="tel:02143820202"
+            href="tel:0911339866"
             className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/60 hover:bg-slate-100/80 transition-colors duration-200 text-xs text-slate-600 font-medium"
           >
             <PhoneCall className="w-3.5 h-3.5 text-blue-500" />
-            <span>Hỗ trợ: 0214.382.0202</span>
+            <span>Hỗ trợ: 0911.339.866</span>
           </a>
           <span className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-green-50 border border-green-200/50 text-xs text-green-600 font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />

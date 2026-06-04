@@ -29,7 +29,7 @@ export default function FAQSupport() {
   ];
 
   const contact: SchoolContact = {
-    hotline: "0214.382.0202",
+    hotline: "0911.339.866",
     alternativePhone: "0912.456.789",
     email: "th.yenthing.vanphu@laocai.edu.vn",
     address: "Tổ dân phố 3, Phường Văn Phú, Thành phố Lào Cai, Tỉnh Lào Cai",
