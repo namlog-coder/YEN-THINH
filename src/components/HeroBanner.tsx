@@ -50,9 +50,7 @@ export default function HeroBanner() {
           id="hero-portal-description" 
           className="mt-5 text-sm md:text-base text-slate-200 font-normal leading-relaxed max-w-3xl"
         >
-          Cổng Thông Tin Đăng Ký Tuyển Sinh Trực Tuyến Hợp Pháp & Quản Lý Hồ Sơ
-          <br className="hidden md:inline" />
-          Học sinh Trường Tiểu học Yên Thịnh – Năm học 2026 – 2027
+          Cổng thông tin đăng ký trực tuyến hợp pháp & quản lý hồ sơ học sinh trường Tiểu học Yên Thịnh - Năm học 2026-2027
         </p>
 
         {/* Status badges */}
@@ -66,7 +64,7 @@ export default function HeroBanner() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
             </span>
-            <span>Đang Mở Tuyển Sinh Lớp 1</span>
+            <span>Đang mở tuyển sinh lớp 1</span>
           </div>
 
           {/* Location Badge */}
